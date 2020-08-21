@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "nuvolar"
+    }
+  },
+  "defaultProject": "nuvolar",
+  "cli": {
+    "analytics": false
+  }
 }
