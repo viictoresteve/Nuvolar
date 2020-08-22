@@ -15,7 +15,7 @@ import { UsersprofileComponent } from './usersprofile/usersprofile.component';
     UserslistComponent,
     UsersprofileComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule ],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })

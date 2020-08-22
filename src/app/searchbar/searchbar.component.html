@@ -1,9 +1,8 @@
-<input (keyup)="onKey($event)" />
-
-<!-- <div class="example-container">
-  <mat-form-field appearance="fill">
-    <mat-label>Input</mat-label>
-    <input matInput />
-  </mat-form-field>
-</div> -->
-<!-- <button (click)="getUsers()">aaaaaa</button> -->
+<div class="container-flex">
+  <input
+    class="form-control form-control-lg"
+    type="text"
+    placeholder="Search for a user"
+    (keyup)="onKey($event)"
+  />
+</div>
