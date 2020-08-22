@@ -8,12 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class UsersprofileComponent implements OnInit {
 
   constructor() {
-
     console.log('we went here');
 
    }
 
   ngOnInit(): void {
+    console.log('we went here');
   }
 
 }

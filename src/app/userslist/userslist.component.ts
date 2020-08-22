@@ -9,12 +9,11 @@ import { Router } from '@angular/router';
 })
 export class UserslistComponent implements OnInit {
   @Input() usersList: User[];
-  constructor(private router: Router) {
-  }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
   goToProfile(login: string) {
-    this.router.navigateByUrl('/' + login);
+    this.router.navigateByUrl(login);
   }
 }

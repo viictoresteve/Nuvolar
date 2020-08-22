@@ -2,7 +2,8 @@
   <div
     class="user"
     *ngFor="let user of usersList"
-    (click)="goToProfile(user.login)"
+    routerLink="{{ user.login }}"
+    routerLinkActive="active"
   >
     <img class="profilepicture" [src]="user.picture" />
     <div class="login">
