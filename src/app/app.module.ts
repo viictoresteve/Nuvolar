@@ -7,6 +7,12 @@ import { AppComponent } from './app.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { UserslistComponent } from './userslist/userslist.component';
 import { UsersprofileComponent } from './usersprofile/usersprofile.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  { path: ':id', component: UsersprofileComponent },
+  { path: '', component: AppComponent , pathMatch: 'full' }
+];
 
 @NgModule({
   declarations: [
@@ -15,7 +21,7 @@ import { UsersprofileComponent } from './usersprofile/usersprofile.component';
     UserslistComponent,
     UsersprofileComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
+  imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(routes) ],
   providers: [],
   bootstrap: [AppComponent],
 })

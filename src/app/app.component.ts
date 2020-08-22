@@ -12,7 +12,6 @@ export class AppComponent {
   usersList = [];
   constructor(private userService: UserService) {}
   findUsers($event) {
-    console.log($event);
 
     if ($event.length > 0) {
       this.userService.getUsers($event).subscribe((res) => {

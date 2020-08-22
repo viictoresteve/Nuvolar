@@ -18,7 +18,6 @@ export class UserService {
   }
 
   getUsers(username): Observable<User[]> {
-    console.log('username', username);
 
     this.url = 'https://api.github.com/users?q=' +username+ '+in:login ';
 

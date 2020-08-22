@@ -7,6 +7,5 @@ export class User {
     this.id = user.id;
     this.login = user.login;
     this.picture = user.avatar_url;
-    console.log('login', user);
   }
 }
