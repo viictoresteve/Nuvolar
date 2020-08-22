@@ -1,1 +1,6 @@
-<p>userslist works!</p>
+<div class="userList">
+  <div class="user" *ngFor="let user of usersList">
+    <img class="profilepicture" [src]="user.picture" />
+    <div class="login">{{ user.login }}</div>
+  </div>
+</div>
