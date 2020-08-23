@@ -1,5 +1,14 @@
-<div class="container">
+<div class="container" *ngIf="user">
   <div class="picture">
-    <!-- <img [src]="user.picture"> -->
+    <img [src]="user.picture">
+  </div>
+  <div class="login">
+   <h1>{{user.login}}</h1>
+  </div>
+  <div class="company">
+   <h1>{{user.company}}</h1>
+  </div>
+  <div class="email">
+   <h1>{{user.email}}</h1>
   </div>
 </div>

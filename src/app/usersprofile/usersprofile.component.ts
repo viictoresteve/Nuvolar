@@ -13,13 +13,18 @@ export class UsersprofileComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: ActivatedRoute
-  ) {}
+  ) {
+    console.log('asd', this.userService.user);
+
+    this.user = this.userService.user;
+  }
 
   ngOnInit(): void {
-    this.userService
-      .getUser(this.router.snapshot.paramMap.get('id'))
-      .subscribe((res) => {
-        this.user = res;
-      });
+    // this.user = this.userService.getUserData(this.router.snapshot.paramMap.get('id'))
+    // this.userService
+    //   .getUser(this.router.snapshot.paramMap.get('id'))
+    //   .subscribe((res) => {
+    //     this.user = res;
+    //   });
   }
 }

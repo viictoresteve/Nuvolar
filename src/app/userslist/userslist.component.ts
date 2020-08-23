@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { User } from '../user.model';
 import { Router } from '@angular/router';
 
@@ -9,13 +9,14 @@ import { Router } from '@angular/router';
 })
 export class UserslistComponent implements OnInit {
   @Input() usersList: User[];
-  constructor(private router: Router) {}
+  @Output() routerEmitter = new EventEmitter();
+  constructor() {}
 
   ngOnInit(): void {
 
   }
 
   goToProfile(login: string) {
-    this.router.navigateByUrl(login);
+    this.routerEmitter.emit(login);
   }
 }
