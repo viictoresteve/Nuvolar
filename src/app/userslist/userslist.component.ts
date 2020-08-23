@@ -17,6 +17,8 @@ export class UserslistComponent implements OnInit {
   }
 
   goToProfile(login: string) {
+
+    // emitting on user click
     this.routerEmitter.emit(login);
   }
 }

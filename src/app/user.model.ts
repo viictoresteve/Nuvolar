@@ -23,8 +23,8 @@ export class User {
     followerNumber?: number,
     repositoriesNumber?: number
   ) {
-    
 
+    // Initializing variables
     this.id = id;
     this.login = login;
     this.name = name;

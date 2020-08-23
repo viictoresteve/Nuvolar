@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {}
   findUsers($event) {
     if ($event.length > 0) {
+      // checking if there is something written in searchbar. If not empty, we do the request. Else we empty the list.
       this.userService.getUsers($event).subscribe((res) => {
         this.usersList = res;
       });
@@ -23,6 +24,7 @@ export class HomeComponent implements OnInit {
   }
 
   navigate($event) {
+    // navigating when clicking
     this.router.navigateByUrl($event);
   }
 }

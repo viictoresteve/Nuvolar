@@ -14,13 +14,15 @@ export class SearchbarComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.searchValue === '') {
+      // emptying list if searchbar empty
       this.users = [];
     }
   }
 
   onKey(event: any) {
+
+    // getting value of searchbar then emitting to parent to make request
     this.searchValue = event.target.value;
     this.usersEmitter.emit(this.searchValue);
-
   }
 }

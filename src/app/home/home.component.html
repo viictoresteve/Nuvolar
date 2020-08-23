@@ -1,4 +1,6 @@
 <div class="container">
+  <!-- Emitters to give responsability only to the parent -->
   <app-searchbar (usersEmitter)="findUsers($event)"></app-searchbar>
+  <!-- Passing usersList to userlist component so that we make the call at the parent -->
   <app-userslist (routerEmitter)="navigate($event)" [usersList]="usersList"></app-userslist>
 </div>

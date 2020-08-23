@@ -22,26 +22,6 @@ export class UserService {
     this.userList = [];
   }
 
-  getUserData(username) {
-    const userInfo = this.getUser(username);
-    const repos = this.getUserRepos(username);
-    const followers = this.getUserFollowers(username);
-
-    return forkJoin(userInfo, repos, followers).subscribe((user) => {
-
-      this.user = new User(
-        user[0].id,
-        user[0].login,
-        user[0].avatar_url,
-        user[0].name,
-        user[0].email,
-        user[0].company,
-        user[1],
-        user[2]
-      );
-    });
-  }
-
   getUsers(username): Observable<User[]> {
     this.url = 'https://api.github.com/users?q=' + username + '+in:login ';
 
@@ -64,22 +44,12 @@ export class UserService {
   getUser(username): Observable<User> {
     this.url = 'https://api.github.com/users/' + username;
 
-    // if (this.userList.length > 0) {
-    //   this.userList.forEach((user) => {
-    //     if (user.login == username) {
-
-    //       return of(user);
-    //     }
-    //   });
-    // } else {
-
     return this.http.get<User>(this.url).pipe(
       map((user) => {
 
         return user;
       })
     );
-    // }
   }
   getUserRepos(username): Observable<any[]> {
     this.url = 'https://api.github.com/users/' + username + '/repos';

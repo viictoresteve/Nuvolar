@@ -19,7 +19,7 @@ export class UsersprofileComponent implements OnInit {
     private router: Router
   ) {
     this.username = this.activatedRoute.snapshot.paramMap.get('id');
-
+    // using forkJoin to subscribe to all Observables at once, so I only create user when I have all the information I need
     forkJoin(
       this.userService.getUser(this.username),
       this.userService.getUserRepos(this.username),
@@ -40,13 +40,7 @@ export class UsersprofileComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    // this.userService
-    //   .getUser(this.router.snapshot.paramMap.get('id'))
-    //   .subscribe((res) => {
-    //     this.user = res;
-    //   });
-  }
+  ngOnInit(): void {}
 
   goBack() {
     this.router.navigate(['']);
