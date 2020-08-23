@@ -1,26 +1,30 @@
 <div class="container" *ngIf="user">
   <div class="picture">
-    <img class="image" [src]="user.picture" />
+    <img class="image" [src]="user.avatar_url" />
   </div>
   <div class="info">
-    <div class="textbox">
+    <div class="textbox backbutton">
       <h4>{{ user.login }}</h4>
+      <button class="btn btn-secondary" (click)="goBack()">Go back</button>
     </div>
-    <div class="textbox" *ngIf="user.company">
+    <div class="textbox">
       <h4>{{ user.company }}</h4>
     </div>
-    <div class="textbox" *ngIf="user.email">
+    <div class="textbox">
+      <h4>{{ user.name }}</h4>
+    </div>
+    <div class="textbox">
       <h4>{{ user.email }}</h4>
     </div>
     <div class="lists">
-      <ul class="repos">
-        <h4>REPOSITORIES ({{ user.repositories.length }})</h4>
+      <ul class="repos" *ngIf="user.repositories">
+        <h4>REPOSITORIES ({{ user.repositoriesNumber }})</h4>
         <li class="repo" *ngFor="let repo of user.repositories">
           {{ repo.name | json }}
         </li>
       </ul>
-      <ul class="followers">
-        <h4>FOLLOWERS ({{ user.followers.length }})</h4>
+      <ul class="followers" *ngIf="user.followers">
+        <h4>FOLLOWERS ({{ user.followerNumber }})</h4>
         <li class="follower" *ngFor="let follower of user.followers">
           {{ follower.login | json }}
         </li>

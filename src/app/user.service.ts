@@ -28,12 +28,12 @@ export class UserService {
     const followers = this.getUserFollowers(username);
 
     return forkJoin(userInfo, repos, followers).subscribe((user) => {
-      console.log('res fork', user);
 
       this.user = new User(
         user[0].id,
         user[0].login,
-        user[0].picture,
+        user[0].avatar_url,
+        user[0].name,
         user[0].email,
         user[0].company,
         user[1],
@@ -48,9 +48,12 @@ export class UserService {
     return this.http.get<User[]>(this.url).pipe(
       map((res) => {
         this.userList = [];
+
         res.forEach((user) => {
           if (user.login.includes(username)) {
-            this.userList.push(new User(user.id, user.login, user.avatar_url));
+            this.userList.push(
+              new User(user.id, user.login, user.avatar_url)
+            );
           }
         });
 
@@ -64,7 +67,6 @@ export class UserService {
     // if (this.userList.length > 0) {
     //   this.userList.forEach((user) => {
     //     if (user.login == username) {
-    //       console.log(user.login, username);
 
     //       return of(user);
     //     }
@@ -73,8 +75,7 @@ export class UserService {
 
     return this.http.get<User>(this.url).pipe(
       map((user) => {
-        console.log('1');
-        console.log('user after call', user);
+
         return user;
       })
     );
@@ -85,7 +86,6 @@ export class UserService {
 
     return this.http.get<any[]>(this.url).pipe(
       map((res) => {
-        console.log('2');
         return res;
       })
     );
@@ -95,7 +95,6 @@ export class UserService {
 
     return this.http.get<any[]>(this.url).pipe(
       map((res) => {
-        console.log('3');
         return res;
       })
     );

@@ -1,29 +1,38 @@
 export class User {
   id: string;
   login: string;
-  picture: string;
+  name: string;
+  avatar_url: string;
   email: string;
   company: string;
   repositories: any;
   followers: any;
-  avatar_url: string;
+  public_repos: number;
+  followerNumber: number;
+  repositoriesNumber: number;
 
   constructor(
     id: string,
     login?: string,
-    picture?: string,
+    avatar_url?: string,
+    name?: string,
     email?: string,
     company?: string,
     repos?: any,
-    followers?: any
+    followers?: any,
+    followerNumber?: number,
+    repositoriesNumber?: number
   ) {
-    console.log('model', id, login, picture, email, company, repos, followers);
+    
 
     this.id = id;
     this.login = login;
-    this.picture = picture;
-    this.email = email;
-    this.company = company;
+    this.name = name;
+    this.avatar_url = avatar_url;
+    this.email = email ? email : 'No public email';
+    this.company = company ? company : 'No public company';
+    this.followerNumber = followerNumber ? followerNumber : null;
+    this.repositoriesNumber = repositoriesNumber ? repositoriesNumber : null;
     if (repos) {
       this.repositories = repos;
     }
