@@ -1,16 +1,23 @@
 .container
   display: flex
-  justify-content: center
-  flex-direction: column
+  justify-content: space-between
   margin-top: 10px
-  .user
+  .info
     display: flex
-    .info
-      display: flex
-      flex-direction: column
-      width: 100%
-      border: 1px solid black
-      .textbox
-        border: 1px solid black
+    flex-direction: column
+    justify-content: center
+    width: 100%
+    border: 0.5px solid black
+    .textbox
+      padding: 4px
   .lists
     display: flex
+    justify-content: space-around
+  .picture
+    .image
+      border: 1px solid black
+      max-width: 100%
+      max-height: 100%
+      min-width: 35%
+      min-height: 35%
+
