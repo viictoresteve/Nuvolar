@@ -37,7 +37,7 @@ export class UsersprofileComponent implements OnInit {
       this.userService.getUserFollowers(this.username)
     ).subscribe(res => {
       console.log('rz in fork', res);
-      this.user = new User(res[0].id, res[0].login, res[0].picture, res[0].email, res[0].company, res[1], res[2])
+      this.user = new User(res[0].id, res[0].login, res[0].avatar_url, res[0].email, res[0].company, res[1], res[2])
       console.log('oz', this.user);
 
     })

@@ -1,14 +1,32 @@
 <div class="container" *ngIf="user">
-  <div class="picture">
-    <img [src]="user.picture">
+  <div class="user">
+    <div class="picture">
+      <img [src]="user.picture" />
+    </div>
+    <div class="info">
+      <div class="textbox">
+        <h4>Login: {{ user.login }}</h4>
+      </div>
+      <div class="textbox" *ngIf="user.company">
+        <h4>Company: {{ user.company }}</h4>
+      </div>
+      <div class="textbox" *ngIf="user.email">
+        <h4>{{ user.email }}</h4>
+      </div>
+    </div>
   </div>
-  <div class="login">
-   <h1>{{user.login}}</h1>
-  </div>
-  <div class="company">
-   <h1>{{user.company}}</h1>
-  </div>
-  <div class="email">
-   <h1>{{user.email}}</h1>
+  <div class="lists">
+    <ul class="repos">
+      <h4>REPOSITORIES ({{ user.repositories.length }})</h4>
+      <li class="repo" *ngFor="let repo of user.repositories">
+        {{ repo.name | json }}
+      </li>
+    </ul>
+    <ul class="followers">
+      <h4>FOLLOWERS ({{ user.followers.length }})</h4>
+      <li class="follower" *ngFor="let follower of user.followers">
+        {{ follower.login | json }}
+      </li>
+    </ul>
   </div>
 </div>
