@@ -11,7 +11,9 @@ export class UserslistComponent implements OnInit {
   @Input() usersList: User[];
   constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
 
   goToProfile(login: string) {
     this.router.navigateByUrl(login);

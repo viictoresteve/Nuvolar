@@ -1,11 +1,25 @@
 export class User {
-  id: string
+  id: string;
   login: string;
   picture: string;
+  repositories: string[];
+  followers: User[];
 
-  constructor(user: any){
-    this.id = user.id;
-    this.login = user.login;
-    this.picture = user.avatar_url;
+  constructor(
+    id: string,
+    login?: string,
+    picture?: string,
+    repos?: string[],
+    followers?: User[]
+  ) {
+    this.id = id;
+    this.login = login;
+    this.picture = picture;
+    if (this.repositories) {
+      this.repositories = repos;
+    }
+    if (this.followers) {
+      this.followers = followers;
+    }
   }
 }

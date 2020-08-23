@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
@@ -8,17 +7,4 @@ import { UserService } from './user.service';
 })
 export class AppComponent {
   title = 'nuvolar';
-
-  usersList = [];
-  constructor(private userService: UserService) {}
-  findUsers($event) {
-
-    if ($event.length > 0) {
-      this.userService.getUsers($event).subscribe((res) => {
-        this.usersList = res;
-      });
-    } else {
-      this.usersList = [];
-    }
-  }
 }

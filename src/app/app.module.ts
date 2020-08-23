@@ -8,11 +8,11 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
 import { UserslistComponent } from './userslist/userslist.component';
 import { UsersprofileComponent } from './usersprofile/usersprofile.component';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: ':id', component: UsersprofileComponent },
-  { path: 'home', component: AppComponent },
-  { path: '', pathMatch: 'full', redirectTo: '/home' },
+  { path: '', component: HomeComponent , pathMatch: 'full' },
 ];
 
 @NgModule({
@@ -21,6 +21,7 @@ const routes: Routes = [
     SearchbarComponent,
     UserslistComponent,
     UsersprofileComponent,
+    HomeComponent,
   ],
   imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(routes)],
   providers: [],
