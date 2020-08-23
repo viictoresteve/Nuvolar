@@ -24,10 +24,10 @@ export class User {
     this.picture = picture;
     this.email = email;
     this.company = company;
-    if (this.repositories) {
+    if (repos) {
       this.repositories = repos;
     }
-    if (this.followers) {
+    if (followers) {
       this.followers = followers;
     }
   }

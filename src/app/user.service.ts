@@ -23,12 +23,11 @@ export class UserService {
   }
 
   getUserData(username) {
-    
     const userInfo = this.getUser(username);
     const repos = this.getUserRepos(username);
     const followers = this.getUserFollowers(username);
 
-    forkJoin(userInfo, repos, followers).subscribe((user) => {
+    return forkJoin(userInfo, repos, followers).subscribe((user) => {
       console.log('res fork', user);
 
       this.user = new User(
@@ -74,26 +73,29 @@ export class UserService {
 
     return this.http.get<User>(this.url).pipe(
       map((user) => {
+        console.log('1');
         console.log('user after call', user);
         return user;
       })
     );
     // }
   }
-  getUserRepos(username): Observable<User[]> {
+  getUserRepos(username): Observable<any[]> {
     this.url = 'https://api.github.com/users/' + username + '/repos';
 
     return this.http.get<any[]>(this.url).pipe(
       map((res) => {
+        console.log('2');
         return res;
       })
     );
   }
-  getUserFollowers(username): Observable<User[]> {
+  getUserFollowers(username): Observable<any[]> {
     this.url = 'https://api.github.com/users/' + username + '/followers';
 
     return this.http.get<any[]>(this.url).pipe(
       map((res) => {
+        console.log('3');
         return res;
       })
     );
