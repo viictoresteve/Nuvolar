@@ -23,7 +23,6 @@ export class User {
     followerNumber?: number,
     repositoriesNumber?: number
   ) {
-
     // Initializing variables
     this.id = id;
     this.login = login;
@@ -31,13 +30,15 @@ export class User {
     this.avatar_url = avatar_url;
     this.email = email ? email : 'No public email';
     this.company = company ? company : 'No public company';
-    this.followerNumber = followerNumber ? followerNumber : null;
-    this.repositoriesNumber = repositoriesNumber ? repositoriesNumber : null;
-    if (repos) {
-      this.repositories = repos;
-    }
-    if (followers) {
-      this.followers = followers;
-    }
+    this.followerNumber = followerNumber ? followerNumber : 0;
+    this.repositoriesNumber = repositoriesNumber ? repositoriesNumber : 0;
+    this.repositories = repos ? repos : null;
+    this.followers = followers ? followers : null;
+    // if (repos) {
+    //   this.repositories = repos;
+    // }
+    // if (followers) {
+    //   this.followers = followers;
+    // }
   }
 }

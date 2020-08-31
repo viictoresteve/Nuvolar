@@ -10,14 +10,12 @@ import { Router } from '@angular/router';
 export class UserslistComponent implements OnInit {
   @Input() usersList: User[];
   @Output() routerEmitter = new EventEmitter();
+
   constructor() {}
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   goToProfile(login: string) {
-
     // emitting on user click
     this.routerEmitter.emit(login);
   }

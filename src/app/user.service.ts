@@ -12,11 +12,11 @@ import { of } from 'rxjs';
 })
 export class UserService {
   url: string;
+  reposUrl: string;
+  followersUrl: string;
   userList: User[];
   user: User;
   since = 0;
-  reposUrl: string;
-  followersUrl: string;
   constructor(private http: HttpClient) {
     this.url = '';
     this.userList = [];
@@ -31,9 +31,7 @@ export class UserService {
 
         res.forEach((user) => {
           if (user.login.includes(username)) {
-            this.userList.push(
-              new User(user.id, user.login, user.avatar_url)
-            );
+            this.userList.push(new User(user.id, user.login, user.avatar_url));
           }
         });
 
@@ -46,7 +44,7 @@ export class UserService {
 
     return this.http.get<User>(this.url).pipe(
       map((user) => {
-
+        console.log('usr', user);
         return user;
       })
     );
